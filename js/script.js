@@ -52,28 +52,27 @@ for(let link of links){
 // Generate title list
 
 const 
-  optArticleSelector = '.post',
-  optTitleSelector = '.post-title',
-  optTitleListSelector = '.titles',
-  optArticleTagsSelector = '.post-tags .list',
-  optArticleAuthorSelector = '.post-author',
-  optTagsListSelector = '.tags .list',
-  optCloudClassCount = '5',
-  optCloudClassPrefix = 'tag-size-',
-  optAuthorsListSelector = '.authors.list';
+  optArticleSelector = document.getElementsByClassName ('.post'),
+  optTitleSelector = document.getElementsByClassName ('.post-title'),
+  optTitleListSelector = document.getElementsByClassName ('.titles');
 
 function generateTitleLinks(customSelector = ''){
+
+let html ='';
 
 /* remove contents of titleList */
 
 const titleList = document.querySelector(optTitleListSelector);
-titleList.innerHTML = '';
+
+function clearTitleList(){
+  document.querySelector(optTitleListSelector).innerHTML = "";
+}
+clearTitleList();
 
 /* for each article */
 
 const articles = document.querySelectorAll(optArticleSelector + customSelector);
 
-let html = '';
 for(let article of articles){
 
   /* get the article id */
@@ -87,24 +86,13 @@ for(let article of articles){
   const articleTitle = article.querySelector(optTitleSelector).innerHTML;
 
   /* create HTML of the link */
-  //const linkHTML = '<li><a href="#' + articleId + ' "><span>' + articleTitle + '</span></a></li>';
-  
-  const linkHTMLData = {id: articleId, title: articleTitle};
-  const linkHTML = templates.articleLink(linkHTMLData);
+  const linkHTML = '<li><a href="#' + articleId + ' "><span>' + articleTitle + '</span></a></li>';
 
   /* insert link into titleList */
- // titleList.innerHTML = titleList.innerHTML + linkHTML;
+  //titleList.innerHTML = titleList.innerHTML + linkHTML;
 
   html = html + linkHTML;
 }
 
 titleList.innerHTML = html;
-
-const links = document.querySelectorAll('.titles a');
-  for(let link of links){
-    link.addEventListener('click', titleClickHandler);
-  }
-}
-
-generateTitleLinks();
 
