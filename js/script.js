@@ -1,7 +1,6 @@
 'use strict';
 
 
-
 function titleClickHandler(event){
   const clickedElement = this;
   event.preventDefault();
@@ -42,7 +41,6 @@ for(let activeArticle of activeArticles){
   /* [DONE] add class 'active' to the correct article */
   targetArticle.classList.add('active');
 }
-
 const links = document.querySelectorAll('.titles a');
 
 for(let link of links){
@@ -55,6 +53,7 @@ const
   optArticleSelector = document.getElementsByClassName ('.post'),
   optTitleSelector = document.getElementsByClassName ('.post-title'),
   optTitleListSelector = document.getElementsByClassName ('.titles');
+  optArticleTagsSelector = document.getElementsByClassName('post-tags .list')
 
 function generateTitleLinks(customSelector = ''){
 
@@ -67,6 +66,7 @@ const titleList = document.querySelector(optTitleListSelector);
 function clearTitleList(){
   document.querySelector(optTitleListSelector).innerHTML = "";
 }
+
 clearTitleList();
 
 /* for each article */
@@ -80,19 +80,59 @@ for(let article of articles){
   const articleId = article.getAttribute('id');
 
   /* find the title element */
-
+  
   /* get the title from the title element */
 
   const articleTitle = article.querySelector(optTitleSelector).innerHTML;
 
   /* create HTML of the link */
-  const linkHTML = '<li><a href="#' + articleId + ' "><span>' + articleTitle + '</span></a></li>';
+  const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
 
   /* insert link into titleList */
   //titleList.innerHTML = titleList.innerHTML + linkHTML;
+  //titleList.insertAdjacentHTML('beforeEnd', linkHTML);
 
   html = html + linkHTML;
 }
 
 titleList.innerHTML = html;
+}
 
+generateTitleLinks();
+
+//Generate tags
+
+function generateTags(){
+  /* find all articles */
+  const articles = document.querySelectorAll(optArticleSelector);
+
+  /* START LOOP: for every article: */
+  for(let article of articles){
+    /* find tags wrapper */
+    const tagWrapper = document.querySelectorAll(optArticleTagsSelector);
+
+    /* make html variable with empty string */
+    let html = '';
+
+    /* get tags from data-tags attribute */
+    const articleTags = article.getAttribute('data-tags');
+    console.log(articleTags);
+
+    /* split tags into array */
+    
+
+    /* START LOOP: for each tag */
+
+      /* generate HTML of the link */
+
+      /* add generated code to html variable */
+
+    /* END LOOP: for each tag */
+
+    /* insert HTML of all the links into the tags wrapper */
+
+  /* END LOOP: for every article: */
+  }
+}
+
+generateTags();
