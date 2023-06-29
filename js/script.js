@@ -1,5 +1,12 @@
 'use strict';
 
+const templates = {
+  articleLink: Handlebars.compile(document.querySelector('#template-article-link').innerHTML),
+  articleTagsLink: Handlebars.compile(document.querySelector('#template-tags-link').innerHTML),
+  authorLink: Handlebars.compile(document.querySelector('#template-author-link').innerHTML),
+  tagCloudLink: Handlebars.compile(document.querySelector('#template-tag-cloud-link').innerHTML),
+  authorCloudLink: Handlebars.compile(document.querySelector('#template-author-cloud-link').innerHTML)
+}
 
 function titleClickHandler(event){
   const clickedElement = this;
@@ -88,7 +95,9 @@ for(let article of articles){
   const articleTitle = article.querySelector(optTitleSelector).innerHTML;
 
   /* [DONE] create HTML of the link */
-  const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
+  //const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
+  const linkHTMLData = {id: articleId, title: articleTitle};
+  const linkHTML = templates.articleLink(linkHTMLData);
 
   /* [DONE] insert link into titleList */
   //titleList.innerHTML = titleList.innerHTML + linkHTML;
@@ -97,7 +106,9 @@ for(let article of articles){
   html = html + linkHTML;
 }
 
-titleList.innerHTML = html;
+//titleList.innerHTML = html;
+tagList.innerHTML = templates.tagCloudLink(allTagsData);
+console.log(allTagsData);
 
 const links = document.querySelectorAll('.titles a');
 
@@ -200,7 +211,7 @@ const tagList = document.querySelector(optTagsListSelector);
 const tagsParams = calculateTagsParams(allTags);
 console.log('tagsParams:', tagsParams);
 
-//let allTagsHMTL = '';
+//let allTagsHTML = '';
 const allTagsData = {tags: []};
 
 /* [NEW] START LOOP: for each tag in allTags: */
