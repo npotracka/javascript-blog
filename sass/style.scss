@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald:400,600|Sacramento|Source+Sans+Pro:300&subset=latin-ext');
+
+/* Variables */
+
+/* Global */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  background: #2d3436;
+  font-family: 'Nunito', sans-serif; 
+  color: white;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.section-title span {
+  text-transform: none;
+  font-weight: 400;
+}
+
+/* Layout */
+
+.wrapper {
+  display: flex;
+  margin-left: 10px;
+}
+
+.sidebar {
+  flex: 1 0 0;
+}
+
+.posts {
+  flex: 2 0 0;
+}
+
+.sidebar .posts {
+  margin-right: 10px;
+  padding: 40px;
+  border: 1px;
+  border-color: black;
+  border-radius: 5px;
+}
+
+.posts {
+  margin-right: 10px;
+  padding: 40px;
+  border: 1px;
+  border-color: black;
+  border-radius: 5px;
+}
+
+/* Logo */
+
+.logo {
+  font-weight: 400;
+  font-size: 104px;
+  line-height: 1;
+  text-align: center;
+  font-style: italic;
+  color: #fab1a0;
+}
+
+/* Lists */
+
+.list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  .active {
+    font-weight: bold;
+  }
+}
+
+.list-horizontal li {
+    display: inline-block;
+}
+
+/* Authors */
+.post-author {
+  font-weight: bold;
+  color: #fab1a0;
+}
+
+.authors li {
+    margin-bottom: 12px;
+}
+
+/* Post */
+
+.post {
+  display: none;
+  &.active {
+    display: block;
+  }
+}
+
+.post-author {
+  font-style: italic;
+}
+
+.post-tags {
+  display: flex;
+  p {
+    margin: 0 10px 0 0;
+  }
+}
+
+.list titles {
+  color: #81ecec;
+}
