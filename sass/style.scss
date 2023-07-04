@@ -1,17 +1,14 @@
-@import url('https://fonts.googleapis.com/css?family=Oswald:400,600|Sacramento|Source+Sans+Pro:300&subset=latin-ext');
-
+@import url("https://fonts.googleapis.com/css?family=Oswald:400,600|Sacramento|Source+Sans+Pro:300&subset=latin-ext");
 /* Variables */
-
 /* Global */
-
 *, *::before, *::after {
   box-sizing: border-box;
 }
 
 body {
-  background: #2d3436;
-  font-family: 'Nunito', sans-serif; 
-  color: white;
+  background: white;
+  font-family: "Nunito", sans-serif;
+  color: black;
   font-weight: 300;
   font-size: 16px;
   line-height: 1.7;
@@ -33,7 +30,6 @@ body {
 }
 
 /* Layout */
-
 .wrapper {
   display: flex;
   margin-left: 10px;
@@ -50,9 +46,7 @@ body {
 .sidebar .posts {
   margin-right: 10px;
   padding: 40px;
-  border: 1px;
-  border-color: black;
-  border-radius: 5px;
+  border: 1px solid #272323;
 }
 
 .posts {
@@ -64,61 +58,98 @@ body {
 }
 
 /* Logo */
-
 .logo {
   font-weight: 400;
   font-size: 104px;
   line-height: 1;
   text-align: center;
   font-style: italic;
-  color: #fab1a0;
+  color: #0c3904;
 }
 
 /* Lists */
-
 .list {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  .active {
-    font-weight: bold;
-  }
+}
+.list .active {
+  font-weight: bold;
 }
 
 .list-horizontal li {
-    display: inline-block;
+  display: inline-block;
 }
 
 /* Authors */
 .post-author {
   font-weight: bold;
-  color: #fab1a0;
+  font-style: italic;
 }
 
 .authors li {
-    margin-bottom: 12px;
+  margin-bottom: 12px;
 }
 
 /* Post */
-
 .post {
   display: none;
-  &.active {
-    display: block;
-  }
+}
+.post.active {
+  display: block;
 }
 
-.post-author {
-  font-style: italic;
+.post-title {
+  font-size: 30px;
 }
 
 .post-tags {
   display: flex;
-  p {
-    margin: 0 10px 0 0;
-  }
+}
+.post-tags p {
+  margin: 0 10px 0 0;
 }
 
-.list titles {
-  color: #81ecec;
+.tag-size-1 {
+  font-size: 16px;
+  color: #e4a830;
+  text-decoration: none;
+}
+
+.tag-size-2 {
+  font-size: 18px;
+  color: #fa5dfc;
+  text-decoration: none;
+}
+
+.tag-size-3 {
+  font-size: 20px;
+  color: #3b73eb;
+  text-decoration: none;
+}
+
+.tag-size-4 {
+  font-size: 22px;
+  color: #064313;
+  text-decoration: none;
+}
+
+.tag-size-5 {
+  font-size: 24px;
+  color: #e1370c;
+  text-decoration: none;
+}
+
+.tag-size-6 {
+  font-size: 26px;
+  color: #6aae11;
+  text-decoration: none;
+}
+
+.tags,
+.authors {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
 }

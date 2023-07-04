@@ -9,8 +9,8 @@ const templates = {
 };
 
 function titleClickHandler(event){
-  const clickedElement = this;
   event.preventDefault();
+  const clickedElement = this;
   console.log('Link was clicked!');
 
   /* [DONE] remove class 'active' from all article links  */
@@ -57,9 +57,9 @@ optArticleSelector = ".post",
 optTitleSelector = ".post-title",
 optTitleListSelector = ".titles",
 optArticleTagsSelector = ".post-tags .list",
-optArticleAuthorSelector = ".post-author",
+optArticleAuthorsSelector = ".post-author",
 optTagsListSelector = ".tags",
-optCloudClassCount = "4",
+optCloudClassCount = "5",
 optCloudClassPrefix = "tag-size-",
 optAuthorListSelector = ".authors";
 
@@ -114,7 +114,6 @@ const links = document.querySelectorAll('.titles a');
 for(let link of links){
   link.addEventListener('click', titleClickHandler);
 }
-
 }
 
 generateTitleLinks();
@@ -155,7 +154,7 @@ function generateTags(){
   /* [DONE] START LOOP: for every article: */
   for(let article of articles){
     /* [DONE] find tags wrapper */
-    const tagWrapper = article.querySelectorAll(optArticleTagsSelector);
+    const tagWrapper = article.querySelector(optArticleTagsSelector);
 
     /* [DONE] make html variable with empty string */
     let html = '';
